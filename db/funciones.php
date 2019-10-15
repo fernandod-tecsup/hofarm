@@ -1,13 +1,5 @@
 <?php
-  function conectarBase($localhost,$root,$clave,$base){
-    if(!$enlace = @mysql_connect($host,$usuario,$clave)){
-      return false;
-    }elseif (!mysql_select_db(base)) {
-      return false;
-    }else{
-      return true;
-    }
-  }
+  
   function consultar($consulta){
     if(!datos = mysql_query($consulta) or mysql_num_rows($datos)<1){
       return false;

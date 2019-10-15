@@ -1,3 +1,6 @@
+<?php
+  
+?>
 <div class="container">
           <div class="row">
             <div class="col-xl-8 col-md-9 mb-4 my-5">
@@ -28,13 +31,16 @@
               <div class="p-5">
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Ingreso al sistema</h1>
+                  <?php if (!empty($message)): ?>
+                    <p><?php= $message ?></p>
+                  <?php endif; ?>
                 </div>
                 <form class="user">
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Ingrese Usuario...">
+                    <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Ingrese Usuario...">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Ingrese Contraseña...">
+                    <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Ingrese Contraseña...">
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">

@@ -23,7 +23,33 @@ CUERPO DOCUMENTO
 ======================================-->
 <body id="page-top">
   <?php
-  //if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
+  require 'db/datos.php';
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  $q = "SELECT COUNT(*) as contar FROM users where email = '$email' and pass = '$password'";
+  $consulta = mysqli_query($conexion,$q);
+  $array = mysqli_fetch_array($consulta);
+  if ($array['contar']>0) {
+    $_SESSION['username'] = $usuario;
+    
+  }else{
+    echo"datos incorrectos";
+  }
+  //if(!empty($_POST['email']) && !empty($_POST['password'])){
+    //$records = $conn->prepare('SELECT id,email,pass FROM users where email = :email');
+    //$records -> bindParam(':email',$_POST['email']);
+    //$records -> execute();
+    //$results = $records ->fetch(PDO::FETCH_ASSOC);
+    //$_SESSION['iniciarSesion'] = $results['id'];
+    //if (count($results) > 0 && password_verify($_POST['password'],$results['pass'])) {
+    //  $_SESSION['user_id'] = $results['id'];
+    //  header('Location: /index.php');
+    //}else{
+    //  $message = 'credenciales incorrectas';
+    //}
+  //}
+  if(isset($_SESSION["username"]) && $_SESSION["username"] == "ok"){
    echo '<div id="wrapper">';
     /*=============================================
     MENU
@@ -56,11 +82,11 @@ CUERPO DOCUMENTO
       }else{
     //include "modulos/login.php";
       }
-//}else{
+}else{
 
-  //include "modulos/login.php";
+  include "modulos/login.php";
 
-//}
+}
     echo '</div>';
     echo '</div>';
     include "Modulos/footer.php";

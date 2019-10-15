@@ -1,6 +1,6 @@
 
 <?php
-require_once "db/db.php";
+require_once "db/datos.php";
 require_once "controladores/plantilla.controlador.php";
 
 

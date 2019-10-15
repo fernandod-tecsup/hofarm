@@ -5,18 +5,9 @@
       <span class="caret"></span></button>
         <ul class="dropdown-menu">
           <?php
-            include("datos.php");
-            include("funciones.php");
-            if conectarBase($host,$usuario,$clave,$base) {
-              $consulta = "SELECT * FROM almacenes";
-              if($paquete = consultar($consulta)){
-                
-              }else {
-                echo "<p>No se encontraron datos</p>";
-              }
-            }else {
-              echo "<p>Servicio interrumpido</p>";
-            }
+            include("db/datos.php");
+            include("db/funciones.php");
+
            ?>
 
         </ul>
